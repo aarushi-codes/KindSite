@@ -1,5 +1,7 @@
 # KindSite
 
+
+
 **🌱 KindSite — Make Every Site a Little Kinder
 Inclusive web accessibility through AI, voice continuity, and on-device personalization.**
 
