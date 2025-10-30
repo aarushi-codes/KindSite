@@ -1,91 +1,80 @@
-# KindSite
+# 🌱 KindSite — Make Every Site a Little Kinder
 
+> Unified accessibility for PDFs, webpages, and videos — powered by AI, personalization, and voice continuity.
 
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=nextdotjs)](https://nextjs.org/)
+[![Flask](https://img.shields.io/badge/Flask-Backend-blue?logo=flask)](https://flask.palletsprojects.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-Database-green?logo=supabase)](https://supabase.com/)
+[![ElevenLabs](https://img.shields.io/badge/Voice-ElevenLabs-orange)](https://elevenlabs.io/)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
 
-**🌱 KindSite — Make Every Site a Little Kinder
-Inclusive web accessibility through AI, voice continuity, and on-device personalization.**
+---
 
-**🧩 The Problem**
+## 🧩 Overview
 
-Universities do provide accessibility accommodations—but they’re scattered across PDFs, websites, and videos. Students registered with Accessibility Services often juggle separate tools for text-to-speech, captions, math readers, and styling preferences.
+Universities already provide *accommodations* — but the support is fragmented across PDFs, websites, and videos.  
+**KindSite** untangles that.
 
-KindSite unifies that support.
+Students registered with Accessibility Services set simple preferences once — readability, motion, math, captions — and those settings follow them everywhere.
 
-**💡 The Solution**
+- 🧠 **Chatbot PDF Fixer** — upload a course PDF → KindSite reformats it with your accessibility profile.  
+- 🌐 **Browser Extension** — automatically applies your preferences to live webpages:
+  - Dyslexia-friendly fonts & calm spacing  
+  - Reduced motion & visual clutter  
+  - Clear, natural math narration  
+  - One-click captions for videos  
 
-Students set their accessibility preferences once—readability, motion sensitivity, math narration, captions—and KindSite takes care of the rest.
+---
 
-- PDF Fixer (Chatbot) – Upload a course PDF → KindSite reformats and re-voices it to match your personal accessibility profile.
-- Browser Extension – The same preferences automatically apply to live webpages:
-- Dyslexia-friendly fonts and calmer spacing
-- Reduced motion and visual clutter
-- Clear, natural math narration
-- One-click captions for videos
+## 🗣️ Voice Continuity
 
-**🗣️ Voice Continuity**
+**What makes KindSite unique:** *familiarity.*
 
-What makes KindSite different: familiarity.
-Using ElevenLabs, instructors can securely clone their teaching voice.
-
+Using [ElevenLabs](https://elevenlabs.io/), instructors can safely clone their teaching voice.  
 Then:
-- Every paragraph, code block, and equation is read in that same voice.
-- Math and code blocks route through dedicated voice pipelines (Narration / Math / Code).
-- Students hear consistent pronunciation of every course term—just like in class.
-- Hearing your own professor read the material turns every PDF and webpage into a continuation of lecture.
 
-  
-**⚙️ Under the Hood**
+- Every paragraph, equation, and code block is read in that same voice.  
+- Pronunciation stays consistent across classes and materials.  
+- Students hear their own professor explain every concept — just like lecture.
 
-- Content-aware rendering — LaTeX → semantic speech conversion.
-- Per-block voice routing — Distinct models for narration, math, and code.
-- ElevenLabs APIs — TTS + STT for speech synthesis and live captions.
-- On-device styling engine — Privacy-first adjustments to font, contrast, spacing, and animation.
-- Supabase + Flask backend — Secure preference storage and PDF processing.
-- Next.js + Chrome Extension frontend — Seamless sync between the web dashboard and live browsing.
+> Voice continuity bridges digital content and classroom experience.
 
+---
 
-**🎯 Impact**
+## ⚙️ Architecture
 
-KindSite reduces cognitive load, standardizes pronunciation, and scales accessibility support without increasing staff workload. Accessibility Offices can deliver consistent, personalized, and human-sounding support to every student—no extra tickets required.
+| Layer | Technologies | Purpose |
+|-------|---------------|----------|
+| **Frontend** | Next.js 14, React, Tailwind | Dashboard + extension UI |
+| **Backend** | Flask, Supabase | API endpoints, preference storage |
+| **Voice Engine** | ElevenLabs TTS + STT | Speech synthesis, live captions |
+| **Accessibility Engine** | Custom DOM transformer | Font, motion, color, and layout adjustments |
+| **Packaging** | Chrome Extension (MV3) | In-browser real-time adaptation |
 
+---
 
-**Tech Stack**
+## 🧠 How It Works
 
-| Layer                | Tools                                 |
-| -------------------- | ------------------------------------- |
-| Frontend             | Next.js 14, Tailwind, React Hooks     |
-| Backend              | Flask, Supabase, REST APIs            |
-| Voice                | ElevenLabs TTS/STT                    |
-| Accessibility Engine | Custom DOM mutation + CSS transformer |
-| Packaging            | Chrome Extension (Manifest V3)        |
-| Deployment           | Vercel (frontend) + Render (backend)  |
+1. **Preferences Setup**  
+   Students specify font type, size, motion sensitivity, and caption preferences in the KindSite dashboard.
 
+2. **PDF Processing**  
+   PDFs uploaded to the chatbot are processed with content-aware rendering:  
+   LaTeX → semantic speech → ElevenLabs voice output.
 
+3. **Live Web Adaptation**  
+   The browser extension detects page structure and applies on-device transformations, ensuring privacy and speed.
 
-**Quick Start**
+4. **Voice Continuity**  
+   Distinct pipelines for Narration / Math / Code maintain clear context while keeping the same instructor voice.
 
-# Clone the repo
+---
+
+## 🚀 Quick Start
+
+### Frontend
+```bash
 git clone https://github.com/aarushialreja/kindsite.git
-cd kindsite
-
-# Frontend setup
-cd frontend
+cd kindsite/frontend
 npm install
 npm run dev
-
-# Backend setup
-cd ../server
-pip install -r requirements.txt
-python app.py
-
-Then open the Chrome Extension panel → “Load unpacked” → select /extension.
-
-**🧭 Roadmap**
-
-- Voice continuity for group projects (multi-speaker coursepacks)
-- LMS integration (Canvas / Quercus)
-- Offline mode for PDFs
-- Automated pronunciation correction
-- AI-based caption cleanup
-
-Accessibility shouldn’t feel like an add-on—it should feel like kindness built in. 🌱
