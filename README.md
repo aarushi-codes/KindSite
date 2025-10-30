@@ -75,6 +75,6 @@ Then:
 ### Frontend
 ```bash
 git clone https://github.com/aarushialreja/kindsite.git
-cd kindsite/finalkindsite1/frontend
+cd finalkindsite1/frontend
 npm install
 npm run dev
